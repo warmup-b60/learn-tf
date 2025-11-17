@@ -1,6 +1,6 @@
 dev-init: 
 	rm -rf .terraform*
-	terraform init --backend-config=./env/dev/state.tfvars --var-file=env/dev/main.tfvars
+	terraform init --backend-config=./env/dev/state.tfvars
 
 dev-plan: dev-init
 	terraform plan --var-file=env/dev/main.tfvars
@@ -13,7 +13,7 @@ dev-destroy: dev-init
 
 prod-init: 
 	rm -rf .terraform*
-	terraform init --backend-config=./env/prod/state.tfvars --var-file=env/prod/main.tfvars
+	terraform init --backend-config=./env/prod/state.tfvars
 
 prod-plan: 
 	terraform plan --var-file=env/prod/main.tfvars
