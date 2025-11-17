@@ -2,7 +2,7 @@ dev-init:
 	rm -rf .terraform*
 	terraform init --backend-config=./env/dev/state.tfvars --var-file=env/dev/main.tfvars
 
-dev-plan: 
+dev-plan: dev-init
 	terraform plan --var-file=env/dev/main.tfvars
 
 dev-apply: dev-init
