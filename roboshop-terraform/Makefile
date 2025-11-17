@@ -8,6 +8,8 @@ dev-plan: dev-init
 dev-apply: dev-init
 	terraform apply -auto-approve  --var-file=./env/dev/main.tfvars
 
+dev-destroy: dev-init
+	terraform destroy -auto-approve  --var-file=./env/dev/main.tfvars
 
 prod-init: 
 	rm -rf .terraform*
@@ -18,3 +20,6 @@ prod-plan:
 
 prod-apply: dev-init
 	terraform apply -auto-approve  --var-file=./env/prod/main.tfvars
+
+prod-destroy: prod-init
+	terraform destroy -auto-approve  --var-file=./env/prod/main.tfvars
