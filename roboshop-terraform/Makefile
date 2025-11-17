@@ -1,4 +1,5 @@
 dev-init: 
+    git pull
 	terraform init --backend-config=./env/dev/state.tfvars --var-file=env/dev/main.tfvars
 
 dev-plan: 
