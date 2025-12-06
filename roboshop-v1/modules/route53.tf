@@ -4,4 +4,4 @@ resource "aws_route53_record" "roboshop" {
   type    = "A"
   ttl     = "10"
   records = [aws_instance.main.private_ip]
-}   
+}
