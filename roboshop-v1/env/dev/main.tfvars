@@ -19,12 +19,12 @@ instances = {
     instance_type = "t3.micro"
   }
 
-  # mysql = {
-  #   instance_type = "t3.micro"
-  # }
-  # shipping = {
-  #   instance_type = "t3.micro"
-  # }
+  mysql = {
+    instance_type = "t3.micro"
+  }
+  shipping = {
+    instance_type = "t3.micro"
+  }
   # payment = {
   #   instance_type = "t3.micro"
   # }
