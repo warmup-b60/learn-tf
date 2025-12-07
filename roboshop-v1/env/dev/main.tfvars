@@ -5,12 +5,12 @@ instances = {
   mongodb = {
     instance_type = "t3.micro"
   }
-  # catalogue = {
-  #   instance_type = "t3.micro"
-  # }
-  # redis = {
-  #   instance_type = "t3.micro"
-  # }
+  catalogue = {
+    instance_type = "t3.micro"
+  }
+  redis = {
+    instance_type = "t3.micro"
+  }
   # cart = {
   #   instance_type = "t3.micro"
   # }
