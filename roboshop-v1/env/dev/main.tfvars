@@ -25,12 +25,12 @@ instances = {
   shipping = {
     instance_type = "t3.micro"
   }
-  # payment = {
-  #   instance_type = "t3.micro"
-  # }
-  # rabbitmq = {
-  #   instance_type = "t3.medium"
-  # }
+  payment = {
+    instance_type = "t3.micro"
+  }
+  rabbitmq = {
+    instance_type = "t3.medium"
+  }
 }
 
 ami_id    = "ami-0fcc78c828f981df2"
