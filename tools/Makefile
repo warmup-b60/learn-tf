@@ -3,8 +3,8 @@ tools-init:
 	git pull
 	terraform init
 
-tools-plan: dev-init
+tools-plan: tools-init
 	terraform plan 
 
-tools-apply: dev-init
+tools-apply: tools-init
 	terraform apply
