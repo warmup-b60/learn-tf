@@ -19,5 +19,5 @@ output "secret" {
 
 resource "local_file" "secret_file" {
   filename = "/tmp/secret.txt"
-  content  = data.vault_generic_secret.rundeck_auth
+  content  = data.vault_generic_secret.rundeck_auth.data_json
 }
