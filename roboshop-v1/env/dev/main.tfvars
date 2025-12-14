@@ -1,7 +1,4 @@
 instances = {
-  frontend = {
-    instance_type = "t3.small"
-  }
   mongodb = {
     instance_type = "t3.small"
   }
@@ -14,22 +11,23 @@ instances = {
   user = {
     instance_type = "t3.small"
   }
-
   cart = {
     instance_type = "t3.small"
   }
-
   mysql = {
     instance_type = "t3.small"
   }
   shipping = {
     instance_type = "t3.small"
   }
+  rabbitmq = {
+    instance_type = "t3.medium"
+  }
   payment = {
     instance_type = "t3.small"
   }
-  rabbitmq = {
-    instance_type = "t3.medium"
+  frontend = {
+    instance_type = "t3.small"
   }
 }
 
