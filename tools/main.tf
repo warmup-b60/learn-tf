@@ -1,7 +1,7 @@
 module "tools" {
   for_each = var.tools 
   
-  source        = "./modules/roboshop-v1"
+  source        = "../roboshop-v1/modules/"
   ami_id        = var.ami_id
   instance_type = each.value["instance_type"]
   name          = each.key
