@@ -15,7 +15,7 @@ variable "security_group_id" {
 }
 
 resource "null_resource" "app" {
-  depends_on = [aws_route53_record.main]
+  depends_on = [aws_route53_record.roboshop]
   triggers = {
     always = timestamp()
   }
