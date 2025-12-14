@@ -14,5 +14,5 @@ data "vault_generic_secret" "rundeck_auth" {
 
 output "secret" {
     value = data.vault_generic_secret.rundeck_auth.data   
-    sensitive = false
+    sensitive = true
 }
