@@ -10,7 +10,7 @@ variable "ami_id" {
     default = "ami-0fcc78c828f981df2"
 }
 variable "env" {
-    default = null
+    default = ""
 }
 
 variable "zone_id" {
