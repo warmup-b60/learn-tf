@@ -7,4 +7,4 @@ tools-plan: tools-init
 	terraform plan 
 
 tools-apply: tools-init
-	terraform apply
+	terraform apply -auto-approve
