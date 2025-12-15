@@ -3,6 +3,6 @@
 # }
 
 locals {
-  env_normalized = coalesce(var.env, "")
+  env_normalized = try(var.env, "")
   name           = local.env_normalized == "" ? var.name : "${var.name}-${local.env_normalized}"
 }
