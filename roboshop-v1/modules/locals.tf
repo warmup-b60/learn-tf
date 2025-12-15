@@ -1,5 +1,5 @@
 locals {
-   name = var.env == null ? "${var.name}" : "${var.name}-${var.env}"
+  name = var.env == null ? "${var.name}" : "${var.name}-${var.env}"
 }
 
 # locals {

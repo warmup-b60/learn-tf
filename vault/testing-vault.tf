@@ -4,8 +4,8 @@ provider "vault" {
 }
 
 variable "token" {
-    type    = string
-    default = "your-vault-token"
+  type    = string
+  default = "your-vault-token"
 }
 
 data "vault_generic_secret" "rundeck_auth" {
@@ -13,8 +13,8 @@ data "vault_generic_secret" "rundeck_auth" {
 }
 
 output "secret" {
-    value = data.vault_generic_secret.rundeck_auth.data   
-    sensitive = true
+  value     = data.vault_generic_secret.rundeck_auth.data
+  sensitive = true
 }
 
 resource "local_file" "secret_file" {

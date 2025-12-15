@@ -1,6 +1,6 @@
 module "tools" {
-  for_each = var.tools 
-  
+  for_each = var.tools
+
   source        = "../roboshop-v1/modules/"
   ami_id        = var.ami_id
   instance_type = each.value["instance_type"]
