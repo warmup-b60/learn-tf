@@ -1,3 +1,8 @@
+# locals {
+#    name = var.env == "" ? "${var.name}" : "${var.name}-${var.env}"
+# }
+
 locals {
-   name = var.env == "" ? "${var.name}" : "${var.name}-${var.env}"
+  env_normalized = coalesce(var.env, "")
+  name           = local.env_normalized == "" ? var.name : "${var.name}-${local.env_normalized}"
 }
