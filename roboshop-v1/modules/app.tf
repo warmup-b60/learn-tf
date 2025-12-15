@@ -10,11 +10,17 @@ resource "null_resource" "app" {
       password = "DevOps321" # data.vault_generic_secret.ssh.data["password"]
     }
 
-    inline = [
-      "sudo pip3.11 install ansible",
-      "pip3.11 install hvac",
-      "ansible-pull  -i localhost, -U https://github.com/warmup-b60/roboshop-ansible.git -e component=${var.name} -e env=${var.name}  main.yml" ||  "ansible-pull  -i localhost, -U https://github.com/warmup-b60/roboshop-ansible.git -e component=${var.name}  main.yml"
-    ]
+inline = [
+  <<-EOF
+  if [ -n "${var.env}" ]; then
+    ansible-pull -i localhost, -U https://github.com/warmup-b60/roboshop-ansible.git \
+      -e component=${var.name} -e env=${var.env} main.yml
+  else
+    ansible-pull -i localhost, -U https://github.com/warmup-b60/roboshop-ansible.git \
+      -e component=${var.name} main.yml
+  fi
+  EOF
+]
   }
 }
 
