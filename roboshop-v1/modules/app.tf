@@ -10,9 +10,12 @@ resource "null_resource" "app" {
       password = "DevOps321" # data.vault_generic_secret.ssh.data["password"]
     }
 
-    inline = [
-      var.env == "" ? "ansible-pull -i localhost, -U https://github.com/warmup-b60/roboshop-ansible.git -e component=${var.name} main.yml" : "ansible-pull -i localhost, -U https://github.com/warmup-b60/roboshop-ansible.git -e component=${var.name} -e env=${var.env} main.yml"
-    ]
+inline = [
+  length(trimspace(coalesce(var.env, ""))) > 0 ?
+  "ansible-pull -i localhost, -U https://github.com/warmup-b60/roboshop-ansible.git -e component=${var.name} -e env=${var.env} main.yml"
+  :
+  "ansible-pull -i localhost, -U https://github.com/warmup-b60/roboshop-ansible.git -e component=${var.name} main.yml"
+]
   }
 }
 
