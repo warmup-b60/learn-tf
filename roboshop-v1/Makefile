@@ -7,7 +7,7 @@ dev-plan: dev-init
 	terraform plan --var-file=env/dev/main.tfvars -var token=$(token)
 
 dev-apply: dev-init
-	terraform apply -auto-approve  --var-file=./env/dev/main.tfvars
+	terraform apply -auto-approve  --var-file=./env/dev/main.tfvars  -var token=$(token)
 
 dev-destroy: dev-init
 	terraform destroy -auto-approve  --var-file=./env/dev/main.tfvars
