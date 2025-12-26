@@ -7,4 +7,5 @@ module "tools" {
   name          = each.key
   zone_id       = var.zone_id
   zone_name     = var.zone_name
+  env          = var.env
 }
