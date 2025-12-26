@@ -8,4 +8,4 @@ tools-plan: tools-init
 
 tools-apply: tools-init
 	terraform apply -auto-approve
-	terraform apply -auto-approve -var env=tools 
+	terraform apply -auto-approve -var env=tools
