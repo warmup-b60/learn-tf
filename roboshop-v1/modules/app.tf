@@ -10,6 +10,7 @@ resource "null_resource" "app" {
       password = "DevOps321" # data.vault_generic_secret.ssh.data["password"]
     }
     inline = [
+      "pip3.11 install ansible-core",
       "ansible-pull -i localhost, -U https://github.com/warmup-b60/roboshop-ansible.git -e component=${var.name} -e env=${var.env} main.yml"
     ]
 
