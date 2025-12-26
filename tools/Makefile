@@ -4,7 +4,8 @@ tools-init:
 	terraform init
 
 tools-plan: tools-init
-	terraform plan 
+	terraform plan  -var env=tools 
 
 tools-apply: tools-init
 	terraform apply -auto-approve
+	terraform apply -auto-approve -var env=tools 
