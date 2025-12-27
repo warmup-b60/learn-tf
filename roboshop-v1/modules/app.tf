@@ -10,7 +10,8 @@ resource "null_resource" "app" {
       password = "DevOps321" # data.vault_generic_secret.ssh.data["password"]
     }
     inline = [
-      "pip3.11 install ansible-core",
+      "pip3.11 install ansible",
+      "ansible-galaxy collection install community.hashi_vault", # This is to install vault collection
       "ansible-pull -i localhost, -U https://github.com/warmup-b60/roboshop-ansible.git -e component=${var.name} -e env=${var.env}  -e token=${var.token} main.yml"
     ]
 
