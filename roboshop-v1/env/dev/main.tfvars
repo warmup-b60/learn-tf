@@ -17,9 +17,9 @@ instances = {
   mysql = {
     instance_type = "t3.small"
   }
-  shipping = {
-    instance_type = "t3.small"
-  }
+  # shipping = {
+  #   instance_type = "t3.small"
+  # }
   # rabbitmq = {
   #   instance_type = "t3.medium"
   # }
