@@ -6,8 +6,8 @@ resource "null_resource" "app" {
   provisioner "remote-exec" { # This let's the execution to happen on the remote node
     connection {
       host     = aws_instance.main.private_ip
-      user     = "ec2-user"  # data.vault_generic_secret.ssh.data["username"]
-      password = "DevOps321" # data.vault_generic_secret.ssh.data["password"]
+      user     = data.vault_generic_secret.ssh.data["ssh_user"]
+      password = data.vault_generic_secret.ssh.data["ssh_pass"]
     }
     inline = [
       "pip3.11 install ansible",
