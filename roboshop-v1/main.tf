@@ -10,3 +10,9 @@ module "ec2" {
   zone_name     = var.zone_name
   token         = var.token
 }
+
+
+
+module "eks" {
+  source        = "./modules/eks"
+}
