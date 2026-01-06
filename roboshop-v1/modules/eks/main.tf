@@ -1,14 +1,8 @@
 resource "aws_eks_cluster" "example" {
   name = "example"
 
-  access_config {
-    authentication_mode = "API"
-  }
-
   role_arn = aws_iam_role.cluster.arn
   version  = "1.33"
-
-  bootstrap_self_managed_addons = false
 
   compute_config {
     enabled       = true
@@ -29,6 +23,7 @@ resource "aws_eks_cluster" "example" {
   }
 
   vpc_config {
+    cluster_security_group_id = aws_security_group.eks_cluster_sg.id
     endpoint_private_access = true
     endpoint_public_access  = true
 
