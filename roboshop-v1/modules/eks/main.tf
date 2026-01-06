@@ -3,6 +3,8 @@ resource "aws_eks_cluster" "example" {
 
   role_arn = aws_iam_role.cluster.arn
   version  = "1.33"
+  
+  bootstrap_self_managed_addons = false 
 
   compute_config {
     enabled       = true
