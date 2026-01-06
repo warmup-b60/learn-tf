@@ -23,7 +23,7 @@ resource "aws_eks_cluster" "example" {
   }
 
   vpc_config {
-    cluster_security_group_id = aws_security_group.eks_cluster_sg.id
+    public_access_cidrs = ["172.31.0.0/16"]
     endpoint_private_access = true
     endpoint_public_access  = true
 
