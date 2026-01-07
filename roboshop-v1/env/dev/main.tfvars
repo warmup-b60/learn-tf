@@ -6,6 +6,6 @@ subnet_ids = [
   "subnet-070af22169c534e0e"
 ]
 eks_cluster_role_name      = "roboshop-eks-cluster-role"
-eks_nodegroup_01_role_name = "roboshop-eks-nodegroup-role"
+eks_nodegroup_01_role_name = "roboshop-eks-nodegroup-01-role"
 nodegroup_01_name          = "roboshop-eks-nodegroup-01"
-ng01_instance_types       = ["t3.medium" , "t3.small"]
+ng01_instance_types        = ["t3.medium", "t3.small"]

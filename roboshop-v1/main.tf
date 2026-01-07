@@ -7,5 +7,5 @@ module "eks" {
   eks_cluster_role_name      = var.eks_cluster_role_name
   eks_nodegroup_01_role_name = var.eks_nodegroup_01_role_name
   nodegroup_01_name          = var.nodegroup_01_name
-  ng01_instance_types      = var.ng01_instance_types
+  ng01_instance_types        = var.ng01_instance_types
 }
