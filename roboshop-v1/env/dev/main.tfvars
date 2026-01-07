@@ -8,3 +8,4 @@ subnet_ids = [
 eks_cluster_role_name      = "roboshop-eks-cluster-role"
 eks_nodegroup_01_role_name = "roboshop-eks-nodegroup-role"
 nodegroup_01_name          = "roboshop-eks-nodegroup-01"
+ng01_instance_types       = ["t3.medium" , "t3.small"]

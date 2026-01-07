@@ -35,3 +35,8 @@ variable "nodegroup_01_name" {
   description = "Name of the EKS Node Group 01"
   type        = string
 }
+
+variable "ng01_instance_types" {
+  description = "Instance Type to be used on ng01"
+  type        = list(string)
+}
