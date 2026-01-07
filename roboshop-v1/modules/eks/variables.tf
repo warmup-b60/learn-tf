@@ -6,10 +6,12 @@
 variable "env" { 
     description = "Environment for the EKS Cluster"
     type        = string
+    default = "dev"
   }
 variable "cluster_name" {
   description = "Name of the EKS Cluster"
   type = string
+  default = "roboshop-eks-cluster"
 }
 
 variable "eks_version" {
@@ -30,17 +32,17 @@ variable "subnet_ids" {
 variable "eks_cluster_role_name" {
   description = "Name Of The IAM Role to be provisioned and will be used by EKS Cluster"
   type = string
-  default = "roboshop-eks-cluster-role"
+  default = "roboshop-dev-eks-cluster-role"
 }
 
 variable "eks_nodegroup_01_role_name" {
     description = "Name Of The IAM Role to be provisioned and will be used by EKS Node Group"
     type = string
-    default = "roboshop-eks-nodegroup-role"
+    default = "roboshop-dev-eks-nodegroup-role"
 }
 
 variable "nodegroup_01_name" {
     description = "Name of the EKS Node Group 01"
     type = string
-    default = "roboshop-eks-nodegroup-01"
+    default = "roboshop-dev-eks-nodegroup-01"
 }
