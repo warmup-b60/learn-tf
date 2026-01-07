@@ -1,7 +1,7 @@
 resource "aws_eks_node_group" "nodegroup_01" {
   cluster_name    = aws_eks_cluster.main.name
   node_group_name = "${var.nodegroup_01_name}-${var.env}"
-  node_role_arn   = aws_iam_role.nodegroup_01_role.arn
+  node_role_arn   = aws_iam_role.node01.arn
   subnet_ids      = var.subnet_ids
   instance_types  = var.ng01_instance_types
 
