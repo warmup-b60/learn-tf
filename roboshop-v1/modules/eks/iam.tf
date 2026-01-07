@@ -48,7 +48,7 @@ resource "aws_iam_role_policy_attachment" "cluster_AmazonEKSNetworkingPolicy" {
 }
 
 
-resource "aws_iam_role" "node" {
+resource "aws_iam_role" "node01" {
   name = "${var.eks_nodegroup_01_role_name}-${var.env}"
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
@@ -64,12 +64,12 @@ resource "aws_iam_role" "node" {
   })
 }
 
-resource "aws_iam_role_policy_attachment" "node_AmazonEKSWorkerNodeMinimalPolicy" {
+resource "aws_iam_role_policy_attachment" "ng01_AmazonEKSWorkerNodeMinimalPolicy" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodeMinimalPolicy"
-  role       = aws_iam_role.node.name
+  role       = aws_iam_role.node01.name
 }
 
-resource "aws_iam_role_policy_attachment" "node_AmazonEC2ContainerRegistryPullOnly" {
+resource "aws_iam_role_policy_attachment" "ng01_AmazonEC2ContainerRegistryPullOnly" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryPullOnly"
-  role       = aws_iam_role.node.name
+  role       = aws_iam_role.node01.name
 }
