@@ -1,8 +1,3 @@
-# variable "subnet_ids" {
-#     description = "List of subnet IDs for the EKS cluster"
-#     type        = list(string)
-# }
-
 variable "env" { 
     description = "Environment for the EKS Cluster"
     type        = string
