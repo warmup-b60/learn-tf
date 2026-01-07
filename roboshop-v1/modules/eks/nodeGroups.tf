@@ -1,11 +1,8 @@
-resource "aws_eks_node_group" "example" {
-  cluster_name    = aws_eks_cluster.example.name
-  node_group_name = "example-ng1"
-  node_role_arn   = aws_iam_role.example.arn
-  subnet_ids = [
-      "subnet-00ceb02053ec025ac",
-      "subnet-070af22169c534e0e"
-    ]
+resource "aws_eks_node_group" "nodegroup_01" {
+  cluster_name    = aws_eks_cluster.main.name
+  node_group_name = "${var.nodegroup_01_name}-${var.env}"
+  node_role_arn   = aws_iam_role.nodegroup_01_role.arn
+  subnet_ids = var.subnet_ids
 
   scaling_config {
     desired_size = 1
@@ -26,8 +23,8 @@ resource "aws_eks_node_group" "example" {
   ]
 }
 
-resource "aws_iam_role" "example" {
-  name = "eks-node-group-example"
+resource "aws_iam_role" "nodegroup_01_role" {
+  name = "${var.eks_nodegroup_01_role_name}-${var.env}"
 
   assume_role_policy = jsonencode({
     Statement = [{
@@ -41,17 +38,17 @@ resource "aws_iam_role" "example" {
   })
 }
 
-resource "aws_iam_role_policy_attachment" "example-AmazonEKSWorkerNodePolicy" {
+resource "aws_iam_role_policy_attachment" "ng01-AmazonEKSWorkerNodePolicy" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
-  role       = aws_iam_role.example.name
+  role       = aws_iam_role.nodegroup_01_role.name
 }
 
-resource "aws_iam_role_policy_attachment" "example-AmazonEKS_CNI_Policy" {
+resource "aws_iam_role_policy_attachment" "ng01-AmazonEKS_CNI_Policy" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
-  role       = aws_iam_role.example.name
+  role       = aws_iam_role.nodegroup_01_role.name
 }
 
-resource "aws_iam_role_policy_attachment" "example-AmazonEC2ContainerRegistryReadOnly" {
+resource "aws_iam_role_policy_attachment" "ng01-AmazonEC2ContainerRegistryReadOnly" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
-  role       = aws_iam_role.example.name
+  role       = aws_iam_role.nodegroup_01_role.name
 }

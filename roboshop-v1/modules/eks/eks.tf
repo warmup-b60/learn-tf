@@ -1,14 +1,11 @@
-resource "aws_eks_cluster" "example" {
-  name = "example"
+resource "aws_eks_cluster" "main" {
+  name = "${var.cluster_name}-${var.env}"
 
   role_arn = aws_iam_role.cluster.arn
-  version  = "1.33"
+  version  = var.eks_version
 
   vpc_config {
-    subnet_ids = [
-      "subnet-00ceb02053ec025ac",
-      "subnet-070af22169c534e0e"
-    ]
+    subnet_ids = var.subnet_ids
   }
 
   # Ensure that IAM Role permissions are created before and deleted
