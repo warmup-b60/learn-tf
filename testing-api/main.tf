@@ -5,10 +5,10 @@
 # }
 
 
-data "external" "httpbin_origin" {
-  program = ["bash", "-c", "curl -s https://httpbin.org/get | jq -r '.origin' | jq -Rn '{origin: input}'"]
+data "external" "httpbin_origins" {
+  program = ["bash", "-c", "curl -s https://httpbin.org/get | jq -r '.url' | jq -Rn '{url: input}'"]
 }
 
 output "origin" {
-  value = data.external.httpbin_origin.result.origin
+  value = data.external.httpbin_origins.result.url
 }
