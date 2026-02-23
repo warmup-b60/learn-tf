@@ -1,3 +1,19 @@
+# Module that provisions the EC2 Instances for the Database
+module "ec2" {
+  for_each = var.instances
+
+  source        = "./modules/ec2"
+  ami_id        = var.ami_id
+  instance_type = each.value["instance_type"]
+  env           = var.env
+  name          = each.key
+  zone_id       = var.zone_id
+  zone_name     = var.zone_name
+  token         = var.token
+}
+
+# Module that provisions the EKS Cluster and Nodegroup
+
 module "eks" {
   source                     = "./modules/eks"
   env                        = var.env

@@ -2,6 +2,15 @@ variable "env" {
   description = "Environment for the EKS Cluster"
   type        = string
 }
+
+# DB Specific Variables
+variable "instances" {}
+variable "ami_id" {}
+variable "zone_id" {}
+variable "zone_name" {}
+variable "token" {}
+
+# Cluster Specific Variables
 variable "cluster_name" {
   description = "Name of the EKS Cluster"
   type        = string
