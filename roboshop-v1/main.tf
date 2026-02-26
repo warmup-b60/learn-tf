@@ -13,7 +13,6 @@ module "ec2" {
 }
 
 # Module that provisions the EKS Cluster and Nodegroup
-
 module "eks" {
   source                     = "./modules/eks"
   env                        = var.env
