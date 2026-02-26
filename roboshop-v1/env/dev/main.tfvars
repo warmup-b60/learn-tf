@@ -18,7 +18,6 @@ instances = {
 }
 
 ami_id    = "ami-0fcc78c828f981df2"
-env       = "dev"
 zone_id   = "Z056682820YKODKLCFUIZ"
 zone_name = "roboshop.internal"
 
