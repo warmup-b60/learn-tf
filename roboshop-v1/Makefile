@@ -1,15 +1,18 @@
+TOKEN ?= 
+
 dev-init: 
 	rm -rf .terraform* || true
+	
 	terraform init --backend-config=./env/dev/state.tfvars 
 
 dev-plan: dev-init
-	terraform plan --var-file=env/dev/main.tfvars 
+    terraform plan --var-file=env/dev/main.tfvars $(if $(TOKEN),-var="token=$(TOKEN)","")
 
 dev-apply: dev-init
-	terraform apply -auto-approve  --var-file=./env/dev/main.tfvars  
+	terraform apply -auto-approve --var-file=./env/dev/main.tfvars $(if $(TOKEN),-var="token=$(TOKEN)","")
 
 dev-destroy: dev-init
-	terraform destroy -auto-approve  --var-file=./env/dev/main.tfvars
+	terraform destroy -auto-approve --var-file=./env/dev/main.tfvars $(if $(TOKEN),-var="token=$(TOKEN)","")
 
 prod-init: 
 	rm -rf .terraform* || true
