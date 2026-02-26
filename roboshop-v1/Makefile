@@ -2,7 +2,6 @@ TOKEN ?=
 
 dev-init: 
 	rm -rf .terraform* || true
-	
 	terraform init --backend-config=./env/dev/state.tfvars 
 
 dev-plan: dev-init
