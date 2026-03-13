@@ -1,5 +1,5 @@
 
-env          = "dev"
+env = "dev"
 
 # Database specific variables for EC2
 instances = {
