@@ -1,0 +1,14 @@
+name: Apply
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run a one-line script
+        run: echo Hello, world!
+      - name: Running TF Apply
+        run: |
+          cd roboshop-v1
+          make dev-apply 
