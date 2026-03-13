@@ -2,6 +2,9 @@ variable "tools" {
   default = {
     vault = {
       instance_type = "t3.small"
+    },
+    github-runner = {
+      instance_type = "t3.small"
     }
   }
 }
@@ -19,3 +22,5 @@ variable "zone_id" {
 variable "zone_name" {
   default = "roboshop.internal"
 }
+
+variable "token" {}

@@ -1,5 +1,5 @@
 resource "aws_iam_role" "cluster" {
-  name = "eks-cluster-example"
+  name = "${var.eks_cluster_role_name}-${var.env}"
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
@@ -48,8 +48,8 @@ resource "aws_iam_role_policy_attachment" "cluster_AmazonEKSNetworkingPolicy" {
 }
 
 
-resource "aws_iam_role" "node" {
-  name = "eks-auto-node-example"
+resource "aws_iam_role" "node01" {
+  name = "${var.eks_nodegroup_01_role_name}-${var.env}"
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
@@ -64,12 +64,17 @@ resource "aws_iam_role" "node" {
   })
 }
 
-resource "aws_iam_role_policy_attachment" "node_AmazonEKSWorkerNodeMinimalPolicy" {
-  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodeMinimalPolicy"
-  role       = aws_iam_role.node.name
+resource "aws_iam_role_policy_attachment" "ng01_AmazonEKSWorkerNodePolicy" {
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
+  role       = aws_iam_role.node01.name
 }
 
-resource "aws_iam_role_policy_attachment" "node_AmazonEC2ContainerRegistryPullOnly" {
-  policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryPullOnly"
-  role       = aws_iam_role.node.name
+resource "aws_iam_role_policy_attachment" "ng01_AmazonEKS_CNI_Policy" {
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
+  role       = aws_iam_role.node01.name
+}
+
+resource "aws_iam_role_policy_attachment" "ng01_AmazonEC2ContainerRegistryReadOnly" {
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
+  role       = aws_iam_role.node01.name
 }
