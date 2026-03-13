@@ -9,6 +9,8 @@ jobs:
       - name: Run a one-line script
         run: echo Hello, world!
       - name: Running TF Apply
+        env:
+          TF_VAR_token: ${{ secrets.TOKEN }}
         run: |
           cd roboshop-v1
           make dev-apply 
