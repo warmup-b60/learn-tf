@@ -22,3 +22,6 @@ variable "zone_id" {
 variable "zone_name" {
   default = "roboshop.internal"
 }
+
+
+variable "token" {}
