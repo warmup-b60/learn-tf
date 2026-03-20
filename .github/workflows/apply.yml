@@ -8,9 +8,21 @@ jobs:
       - uses: actions/checkout@v4
       - name: Run a one-line script
         run: echo Hello, world!
-      - name: Running TF Apply
+      - name: Running Init
+        run: |
+          cd roboshop-v1
+          terraform init --backend-config=./env/dev/state.tfvars
+          
+      - name: Running Plan
         env:
           TF_VAR_token: ${{ secrets.TOKEN }}
         run: |
           cd roboshop-v1
-          make dev-apply token=${TF_VAR_token}
+          terraform plan --var-file=env/dev/main.tfvars -var token=${{ secrets.TOKEN }}
+
+      - name: Running Apply
+        env:
+          TF_VAR_token: ${{ secrets.TOKEN }}
+        run: |
+          cd roboshop-v1
+          terraform apply -auto-approve --var-file=env/dev/main.tfvars -var token=${{ secrets.TOKEN }}          
