@@ -10,7 +10,7 @@ jobs:
         run: echo Hello, world!
       - name: Running TF Apply
         env:
-          TF_VAR_token: ${{ secrets.TOKEN }}
+          TF_VAR_TOKEN: ${{ secrets.TOKEN }}
         run: |
           cd roboshop-v1
-          make dev-apply token=${TF_VAR_token}
+          make dev-apply token=${TF_VAR_TOKEN}
