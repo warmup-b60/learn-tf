@@ -13,4 +13,4 @@ jobs:
           TF_VAR_token: ${{ secrets.TOKEN }}
         run: |
           cd roboshop-v1
-          make dev-apply 
+          make dev-apply token=${TF_VAR_token}
