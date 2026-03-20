@@ -7,8 +7,7 @@ dev-init:
 dev-plan: dev-init
 	terraform plan --var-file=env/dev/main.tfvars $(if $(TOKEN),-var="token=$(TOKEN)","")
 
-dev-apply:
-    terraform plan --var-file=env/dev/main.tfvars $(if $(TOKEN),-var="token=$(TOKEN)","")
+dev-apply: dev-plan
 	terraform apply -auto-approve --var-file=./env/dev/main.tfvars $(if $(TOKEN),-var="token=$(TOKEN)","")
 
 dev-destroy: dev-init
