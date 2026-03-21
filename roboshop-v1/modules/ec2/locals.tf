@@ -1,8 +1,4 @@
 locals {
-  name = var.env == null ? "${var.name}" : "${var.name}-${var.env}"
+  name       = var.env == null ? "${var.name}" : "${var.name}-${var.env}"
+  iam_policy = concat(["sts:GetCallerIdentity"], var.iam_policy)
 }
-
-# locals {
-#   env_normalized = try(var.env, "")
-#   name           = local.env_normalized == "" ? var.name : "${var.name}-${local.env_normalized}"
-# }

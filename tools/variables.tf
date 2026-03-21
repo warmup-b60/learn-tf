@@ -2,6 +2,7 @@ variable "tools" {
   default = {
     vault = {
       instance_type = "t3.small"
+      iam_policy    = ["*"]
     },
     github-runner = {
       instance_type = "t3.small"

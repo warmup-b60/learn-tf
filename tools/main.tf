@@ -9,4 +9,5 @@ module "tools" {
   zone_name     = var.zone_name
   env           = var.env
   token         = var.token
+  iam_policy    = try(each.value["iam_policy"], [])
 }
