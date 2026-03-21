@@ -20,9 +20,9 @@ jobs:
           cd tools
           terraform plan -var token=${{ secrets.TOKEN }}
 
-    #   - name: Running Apply
-    #     env:
-    #       TF_VAR_token: ${{ secrets.TOKEN }}
-    #     run: |
-    #       cd roboshop-v1
-    #       terraform apply -auto-approve --var-file=env/dev/main.tfvars -var token=${{ secrets.TOKEN }}          
+      - name: Running Applt
+        env:
+          TF_VAR_token: ${{ secrets.TOKEN }}
+        run: |
+          cd tools
+          terraform apply -auto-approve -var token=${{ secrets.TOKEN }}
