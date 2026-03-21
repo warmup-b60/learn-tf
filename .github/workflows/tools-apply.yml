@@ -1,0 +1,28 @@
+name: Tools-Apply
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run a one-line script
+        run: echo Hello, world!
+      - name: Running Init
+        run: |
+          cd tools
+          terraform init
+          
+      - name: Running Plan
+        env:
+          TF_VAR_token: ${{ secrets.TOKEN }}
+        run: |
+          cd tools
+          terraform plan -var token=${{ secrets.TOKEN }}
+
+    #   - name: Running Apply
+    #     env:
+    #       TF_VAR_token: ${{ secrets.TOKEN }}
+    #     run: |
+    #       cd roboshop-v1
+    #       terraform apply -auto-approve --var-file=env/dev/main.tfvars -var token=${{ secrets.TOKEN }}          
